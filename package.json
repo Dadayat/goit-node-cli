@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "commander": "^12.0.0",
+    "nanoid": "^5.0.7"
+  },
+  "name": "goit-node-cli",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "test": "echo\"Error: no test specified\" && exit 1 ",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Daria_Yatsenko",
+  "license": "ISC",
+  "description": ""
+}
