@@ -15,22 +15,10 @@ function writeContacts(contacts) {
   return fs.writeFile(contactsPath, JSON.stringify(contacts, undefined, 2));
 }
 
-async function getContact() {
-  const contacts = await listContacts();
-
-  return contacts;
-}
-
 async function getContactById(contactId) {
   const contacts = await listContacts();
 
-  const contact = contacts.find((contact) => contact.id === contactId);
-
-  if (typeof contact === "undefined") {
-    return null;
-  }
-
-  return contact;
+  return contacts.find((contact) => contact.id === contactId) || null;
 }
 
 async function removeContact(contactId) {
@@ -61,27 +49,5 @@ async function addContact(contact) {
 
   return newContact;
 }
-// async function addContact(name, email, phone) {
-//   const id = nanoid();
-//   const contact = { id, name, email, phone };
-//   let existingContacts = [];
-
-//   try {
-//     const data = await fs.readFile(contactsPath, "utf8");
-//     existingContacts = JSON.parse(data);
-//   } catch (error) {}
-
-//   existingContacts.push(contact);
-
-//   await fs.writeFile(contactsPath, JSON.stringify(existingContacts, null, 2));
-
-//   return contact;
-// }
-
-// Приклад використання функції addContact
-// (async () => {
-//   const contact = await addContact("Іван", "ivan@example.com", "+123456789");
-//   console.log(contact); // Виведе об'єкт контакту
-// })();
 
 export default { listContacts, addContact, removeContact, getContactById };
